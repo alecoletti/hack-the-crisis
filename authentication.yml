@@ -1,0 +1,48 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: Authentication system using SAML
+
+Resources:
+  UserPool:
+    Type: AWS::Cognito::UserPool
+    Properties:
+      UsernameAttributes:
+        - email
+      Schema:
+        - Name: email
+          StringAttributeConstraints:
+            MinLength: "0"
+            MaxLength: "2048"
+          DeveloperOnlyAttribute: false
+          Required: true
+          AttributeDataType: String
+          Mutable: true
+        - Name: name
+          AttributeDataType: String
+          Required: true
+          Mutable: true
+      UserPoolName: pickapp-user-pool
+      AutoVerifiedAttributes:
+        - email
+      UsernameConfiguration:
+        CaseSensitive: false
+      Policies:
+        PasswordPolicy:
+          RequireLowercase: true
+          RequireSymbols: false
+          RequireNumbers: true
+          MinimumLength: 8
+          RequireUppercase: true
+
+  PickAppPoolClient:
+    Type: AWS::Cognito::UserPoolClient
+    Properties:
+      ClientName: pick-app-client
+      GenerateSecret: false
+      RefreshTokenValidity: 1
+      UserPoolId: !Ref UserPool
+
+Outputs:
+  UserPoolId:
+    Value: !Ref UserPool
+    Export:
+      Name: PickApp-UserPoolId

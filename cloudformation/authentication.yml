@@ -20,9 +20,14 @@ Resources:
           AttributeDataType: String
           Required: true
           Mutable: true
+      MfaConfiguration: "OFF"
       UserPoolName: pickapp-user-pool
       AutoVerifiedAttributes:
         - email
+      AccountRecoverySetting:
+        RecoveryMechanisms:
+          - Name: verified_email
+            Priority: 1
       UsernameConfiguration:
         CaseSensitive: false
       Policies:
@@ -39,6 +44,8 @@ Resources:
       ClientName: pick-app-client
       GenerateSecret: false
       RefreshTokenValidity: 1
+      SupportedIdentityProviders:
+        - COGNITO
       UserPoolId: !Ref UserPool
 
 Outputs:

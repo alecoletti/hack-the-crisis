@@ -1,0 +1,22 @@
+{
+  "name": "hack-the-crisis",
+  "version": "1.0.0",
+  "description": "hack-the-crisis-hackathon",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alecoletti/hack-the-crisis.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alecoletti/hack-the-crisis/issues"
+  },
+  "homepage": "https://github.com/alecoletti/hack-the-crisis#readme",
+  "dependencies": {
+    "lambda-api": "^0.10.5"
+  }
+}

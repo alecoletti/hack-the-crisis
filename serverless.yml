@@ -1,0 +1,20 @@
+service: pickApp
+provider:
+  name: aws
+  runtime: nodejs12.x
+functions:
+  request:
+    handler: src/pickApp/index.handler
+    events:
+      - http:
+          path: requests
+          method: get
+          cors: true
+      - http: 
+          path: requests/{id}    
+          method: get
+          cors: true
+      - http: 
+          path: requests
+          method: post
+          cors: true    

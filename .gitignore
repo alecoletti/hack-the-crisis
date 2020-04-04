@@ -5,3 +5,9 @@
 .DS_Store
 
 .env
+
+.idea/
+*.iml
+
+# VIM
+*.sw[a-z]

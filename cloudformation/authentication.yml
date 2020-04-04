@@ -10,8 +10,8 @@ Resources:
       Schema:
         - Name: email
           StringAttributeConstraints:
-            MinLength: "0"
-            MaxLength: "2048"
+            MinLength: '0'
+            MaxLength: '2048'
           DeveloperOnlyAttribute: false
           Required: true
           AttributeDataType: String
@@ -20,7 +20,7 @@ Resources:
           AttributeDataType: String
           Required: true
           Mutable: true
-      MfaConfiguration: "OFF"
+      MfaConfiguration: 'OFF'
       UserPoolName: pickapp-user-pool
       AutoVerifiedAttributes:
         - email
